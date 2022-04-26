@@ -19,14 +19,11 @@
   package-lock.json
   ```
 
-## template 构建说明
+- 项目使用 `pnpm` 管理
 
-- 项目 `template` 使用 `pnpm` 创建
-- 上传时，忽略掉对应的 `lock` 文件
+## base 构建说明
 
-### base 构建说明
-
-#### 初始化
+### 初始化
 
 ```shell
 pnpm create next-app -- --ts
@@ -34,7 +31,7 @@ pnpm create next-app -- --ts
 
 打开 `base` 目录，删除 `.git` 版本控制
 
-#### 添加额外的 eslint 配置
+### 添加额外的 eslint 配置
 
 ```shell
 pnpm add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-simple-import-sort
@@ -72,7 +69,7 @@ pnpm add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-pl
 
 > `source.fixAll` 表示启用了所有扩展程序的修复功能，你也可以只启用 ` "source.fixAll.eslint": true`
 
-#### 添加 `prettier`
+### 添加 `prettier`
 
 ```shell
 pnpm add -D prettier eslint-config-prettier
@@ -115,7 +112,7 @@ pnpm add -D prettier eslint-config-prettier
 - `Default Dormatter` 改为 `prettier`
 - 启用 `Format On Save`
 
-#### 增加 import baseUrl
+### 增加 import baseUrl
 
 `tsconfig.json` 中添加
 
@@ -130,7 +127,7 @@ import "styles/globals.css";
 import styles from "styles/Home.module.css";
 ```
 
-#### 增加 svg 组件
+### 增加 svg 组件
 
 安装
 
@@ -167,3 +164,19 @@ const Test = () => (
   </div>
 );
 ```
+
+## tailwindcss 构建
+
+基于 `base` 创建
+
+### 增加 tailwindcss 依赖
+
+参考 [next typesctipt](https://nextjs.org/docs/basic-features/typescript) 与 [Install Tailwind CSS with Next.js](https://tailwindcss.com/docs/installation/framework-guides)
+其中的命令改为用 `pnpm` 执行
+
+```shell
+pnpm add -D tailwindcss postcss autoprefixer
+pnpx tailwindcss init -p
+```
+
+针对 `vs code` 参考 [Editor Setup](https://tailwindcss.com/docs/editor-setup) 安装 `PostCSS Language Support` 和 `Tailwind CSS IntelliSense`
