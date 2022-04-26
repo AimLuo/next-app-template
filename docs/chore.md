@@ -71,3 +71,46 @@ pnpm add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-pl
 ```
 
 > `source.fixAll` 表示启用了所有扩展程序的修复功能，你也可以只启用 ` "source.fixAll.eslint": true`
+
+#### 添加 `prettier`
+
+```shell
+pnpm add -D prettier eslint-config-prettier
+```
+
+增加 `.prettierrc.json`
+
+```json
+{
+  "semi": false,
+  "trailingComma": "es5",
+  "singleQuote": true,
+  "tabWidth": 2,
+  "jsxSingleQuote": true,
+  "useTabs": false
+}
+```
+
+修改 `.eslintrc.json`
+
+```json
+{
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn"
+  }
+}
+```
+
+针对 `vs code` 安装 [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 扩展，打开 `vs code` 设置：
+
+- `Default Dormatter` 改为 `prettier`
+- 启用 `Format On Save`
