@@ -23,3 +23,11 @@
 
 - 项目 `template` 使用 `pnpm` 创建
 - 上传时，忽略掉对应的 `lock` 文件
+
+### base 构建说明
+
+```shell
+pnpm create next-app -- --ts
+```
+
+打开 `base` 目录，删除 `.git` 版本控制
