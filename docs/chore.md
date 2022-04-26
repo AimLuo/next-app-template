@@ -114,3 +114,18 @@ pnpm add -D prettier eslint-config-prettier
 
 - `Default Dormatter` 改为 `prettier`
 - 启用 `Format On Save`
+
+#### 增加 import baseUrl
+
+`tsconfig.json` 中添加
+
+```json
+"baseUrl": "."
+```
+
+就可以这样用了
+
+```ts
+import "styles/globals.css";
+import styles from "styles/Home.module.css";
+```
