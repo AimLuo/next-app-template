@@ -129,3 +129,41 @@ pnpm add -D prettier eslint-config-prettier
 import "styles/globals.css";
 import styles from "styles/Home.module.css";
 ```
+
+#### 增加 svg 组件
+
+安装
+
+```shell
+pnpm add -D @svgr/webpack
+```
+
+修改 `next.config.js` 配置
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ["@svgr/webpack"],
+    });
+    return config;
+  },
+};
+
+module.exports = nextConfig;
+```
+
+就可以这样用了
+
+```ts
+import Foo from "icons/foo.svg";
+const Test = () => (
+  <div>
+    test <Foo />
+  </div>
+);
+```
